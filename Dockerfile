@@ -2,6 +2,9 @@ FROM julia:1.9.3-bookworm
 
 # RUN cat /etc/passwd
 
+RUN apt-get update \
+    && apt-get install python3-jupyterlab
+
 RUN which jupyter
 
 RUN useradd -m -s /bin/bash user && echo "user:111" | chpasswd
