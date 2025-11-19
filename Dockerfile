@@ -16,4 +16,5 @@ RUN chmod -R u+rwx /workdir
 
 USER user
 
-RUN  which julia 
+RUN which julia \
+    && julia -e "using Pkg; Pkg.status()"
