@@ -7,7 +7,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 	&& apt-get update -y \
     && apt-get install -y --no-install-recommends python3 python3-pip python3-full
  
-RUN pip3 install jupyterlab
+RUN pip config set global.break-system-packages true \
+    && pip install jupyterlab
 
 RUN jupyterlab --version
 
