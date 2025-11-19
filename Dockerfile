@@ -6,7 +6,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y --no-install-recommends python3 python3-pip \
 	&& pip3 install jupyterlab
 
-RUN jupyterlab --version
+RUN jupyter-lab --version
 
 RUN useradd -m -s /bin/bash user && echo "user:111" | chpasswd
 RUN usermod -aG sudo user
