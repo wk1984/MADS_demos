@@ -22,6 +22,30 @@ RUN chmod -R u+rwx /workdir
 
 USER user
 
-#RUN which julia \
-#    && julia -e 'using Pkg; Pkg.status(); Pkg.add("IJulia");'
+# 配置JULIA环境
+ENV JULIA_PKG_SERVER="https://mirrors.ustc.edu.cn/julia"
+ENV PATH=$HOME/julia-1.7.3/bin:$PATH
 
+RUN cd $HOME \
+    && wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.3-linux-x86_64.tar.gz \
+#    && wget https://mirrors.tuna.tsinghua.edu.cn/julia-releases/bin/linux/x64/1.7/julia-1.7.3-linux-x86_64.tar.gz \
+    && tar -xzf julia-1.7.3-linux-x86_64.tar.gz \
+    && rm julia-1.7.3-linux-x86_64.tar.gz
+
+RUN which julia 
+
+# Then install julia packages on a per-user basis...
+
+RUN echo 'using Pkg; Pkg.add(name="Mads", version="1.3.10")' | julia
+RUN echo 'using Pkg; Pkg.add("PyCall")' | julia
+RUN echo 'using Pkg; Pkg.add("DataFrames")' | julia
+RUN echo 'using Pkg; Pkg.add("DataStructures")' | julia
+RUN echo 'using Pkg; Pkg.add("CSV")' | julia
+RUN echo 'using Pkg; Pkg.add("YAML")' | julia
+RUN echo 'using Pkg; Pkg.add("IJulia")' | julia
+
+RUN echo 'using Pkg; Pkg.gc()' | julia
+
+WORKDIR /work
+
+CMD ["jupyter-lab" ,  "--ip=0.0.0.0"  , "--no-browser"]
