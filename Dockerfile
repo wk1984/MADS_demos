@@ -2,6 +2,8 @@ FROM julia:1.9.3-bookworm
 
 # RUN cat /etc/passwd
 
+RUN which jupyter
+
 RUN useradd -m -s /bin/bash user && echo "user:111" | chpasswd
 RUN usermod -aG sudo user
 
@@ -19,4 +21,3 @@ USER user
 RUN which julia \
     && julia -e 'using Pkg; Pkg.status(); Pkg.add("IJulia");'
 
-RUN which jupyter
