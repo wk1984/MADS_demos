@@ -4,7 +4,7 @@ FROM julia:1.9.3-bookworm
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     export DEBCONF_NONINTERACTIVE_SEEN=true \
-	apt-get update -y \
+	&& apt-get update -y \
     && apt-get install -y --no-install-recommends python3-jupyterlab
 
 RUN which jupyter
