@@ -25,6 +25,7 @@ USER user
 # 配置JULIA环境
 ENV HOME=/home/user
 ENV JUPYTER=/usr/local/bin/jupyter
+ENV PYTHON=/usr/local/bin/python3
 ENV JULIA_PKG_SERVER="https://mirrors.ustc.edu.cn/julia"
 ENV PATH=$HOME/julia-1.7.3/bin:$PATH
 
