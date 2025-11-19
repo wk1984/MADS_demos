@@ -15,3 +15,5 @@ RUN chown -R user:user /workdir
 RUN chmod -R u+rwx /workdir
 
 USER user
+
+RUN  which julia 
