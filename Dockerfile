@@ -23,6 +23,7 @@ RUN chmod -R u+rwx /workdir
 USER user
 
 # 配置JULIA环境
+ENV HOME=/home/user
 ENV JULIA_PKG_SERVER="https://mirrors.ustc.edu.cn/julia"
 ENV PATH=$HOME/julia-1.7.3/bin:$PATH
 
