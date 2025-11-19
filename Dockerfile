@@ -18,3 +18,5 @@ USER user
 
 RUN which julia \
     && julia -e 'using Pkg; Pkg.status(); Pkg.add("IJulia");'
+
+RUN which jupyter
