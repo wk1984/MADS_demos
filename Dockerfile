@@ -38,8 +38,8 @@ RUN which julia
 
 # Then install julia packages on a per-user basis...
 
-RUN echo 'Pkg.add("Conda");Pkg.build("Conda")' | julia
-RUN echo 'Pkg.add("PyCall");Pkg.build("PyCall")' | julia
+RUN echo 'using Pkg; Pkg.add("Conda");Pkg.build("Conda")' | julia
+RUN echo 'using Pkg; Pkg.add("PyCall");Pkg.build("PyCall")' | julia
 
 RUN echo 'using Pkg; Pkg.add(name="Mads", version="1.3.10", io=devnull)' | julia
 RUN echo 'using Pkg; Pkg.add("PyCall", io=devnull)' | julia
