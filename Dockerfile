@@ -1,14 +1,10 @@
-FROM julia:1.9.3-bookworm
-
-# RUN cat /etc/passwd
+FROM ubuntu:20.04
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     export DEBCONF_NONINTERACTIVE_SEEN=true \
 	&& apt-get update -y \
-    && apt-get install -y --no-install-recommends python3 python3-pip python3-full
- 
-RUN pip config set global.break-system-packages true \
-    && pip install jupyterlab
+    && apt-get install -y --no-install-recommends python3 python3-pip \
+	&& pip3 install jupyterlab
 
 RUN jupyterlab --version
 
@@ -26,6 +22,6 @@ RUN chmod -R u+rwx /workdir
 
 USER user
 
-RUN which julia \
-    && julia -e 'using Pkg; Pkg.status(); Pkg.add("IJulia");'
+#RUN which julia \
+#    && julia -e 'using Pkg; Pkg.status(); Pkg.add("IJulia");'
 
