@@ -5,9 +5,10 @@ FROM julia:1.9.3-bookworm
 RUN export DEBIAN_FRONTEND=noninteractive \
     export DEBCONF_NONINTERACTIVE_SEEN=true \
 	&& apt-get update -y \
-    && apt-get install -y --no-install-recommends python3-jupyterlab
+    && apt-get install -y --no-install-recommends python3 python3-pip python3-dev \
+	&& pip install jupyterlab
 
-RUN which jupyter
+RUN jupyterlab --version
 
 RUN useradd -m -s /bin/bash user && echo "user:111" | chpasswd
 RUN usermod -aG sudo user
