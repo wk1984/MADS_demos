@@ -1,1 +1,1 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/wk1984/MADS_demos/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/wk1984/MADS_demos/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontamination.ipynb)
