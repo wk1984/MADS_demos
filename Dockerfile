@@ -5,7 +5,7 @@ FROM ubuntu:20.04
 RUN export DEBIAN_FRONTEND=noninteractive \
     export DEBCONF_NONINTERACTIVE_SEEN=true \
 	&& apt-get update -y \
-    && apt-get install -y --no-install-recommends python3 python3-pip wget sudo \
+    && apt-get install -y --no-install-recommends python3 python3-pip wget sudo fonts-dejavu-core fonts-noto-cjk \
 	&& pip3 install jupyterlab
 
 RUN jupyter-lab --version
