@@ -38,8 +38,8 @@ ENV PATH=$HOME/julia-1.11.5/bin:$PATH
 RUN cd $HOME \
     && wget -q https://julialang-s3.julialang.org/bin/linux/x64/1.11/julia-1.11.5-linux-x86_64.tar.gz \
 #    && wget https://mirrors.tuna.tsinghua.edu.cn/julia-releases/bin/linux/x64/1.7/julia-1.7.3-linux-x86_64.tar.gz \
-    && tar -xzf julia-1.7.3-linux-x86_64.tar.gz \
-    && rm julia-1.7.3-linux-x86_64.tar.gz
+    && tar -xzf julia-1.11.5-linux-x86_64.tar.gz \
+    && rm julia-1.11.5-linux-x86_64.tar.gz
 
 RUN which julia 
 
