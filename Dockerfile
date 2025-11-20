@@ -1,6 +1,6 @@
-# FROM ubuntu:22.04
+FROM ubuntu:20.04
 
-FROM julia:1.7.3
+#FROM julia:1.7.3
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     export DEBCONF_NONINTERACTIVE_SEEN=true \
@@ -48,7 +48,7 @@ RUN which julia
 RUN echo 'using Pkg; Pkg.add("Conda");Pkg.build("Conda")' | julia
 RUN echo 'using Pkg; Pkg.add("PyCall");Pkg.build("PyCall")' | julia
 
-RUN echo 'using Pkg; Pkg.add(name="Mads", version="1.3.10", io=devnull)' | julia
+RUN echo 'using Pkg; Pkg.add(name="Mads", io=devnull)' | julia
 RUN echo 'using Pkg; Pkg.add("DataFrames", io=devnull)' | julia
 RUN echo 'using Pkg; Pkg.add("DataStructures", io=devnull)' | julia
 RUN echo 'using Pkg; Pkg.add("CSV", io=devnull)' | julia
