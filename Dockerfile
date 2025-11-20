@@ -16,6 +16,10 @@ USER root
 RUN chown -R user:user $HOME/
 RUN chmod -R u+rwx $HOME/
 
+RUN mkdir -p $HOME/.julia
+RUN chown -R user:user $HOME/.julia
+RUN chmod -R u+rwx $HOME/.julia
+
 RUN mkdir -p /workdir
 RUN chown -R user:user /workdir
 RUN chmod -R u+rwx /workdir
@@ -51,10 +55,6 @@ RUN echo 'using Pkg; Pkg.add("YAML", io=devnull)' | julia
 RUN echo 'using Pkg; Pkg.add("IJulia", io=devnull)' | julia
 
 RUN echo 'using Pkg; Pkg.gc()' | julia
-
-USER root
-RUN chown -R user:user $HOME/.julia
-RUN chmod -R u+rwx $HOME/.julia
 
 USER user
 WORKDIR /work
