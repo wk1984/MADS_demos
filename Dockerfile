@@ -1,9 +1,11 @@
-FROM ubuntu:22.04
+# FROM ubuntu:22.04
+
+FROM julia:1.7.3
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     export DEBCONF_NONINTERACTIVE_SEEN=true \
 	&& apt-get update -y \
-    && apt-get install -y --no-install-recommends python3 python3-pip wget \
+    && apt-get install -y --no-install-recommends python3 python3-pip wget sudo \
 	&& pip3 install jupyterlab
 
 RUN jupyter-lab --version
