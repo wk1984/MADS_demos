@@ -47,11 +47,11 @@ RUN echo 'using Pkg; Pkg.add("Conda");Pkg.build("Conda")' | julia
 RUN echo 'using Pkg; Pkg.add("PyCall");Pkg.build("PyCall")' | julia
 
 RUN echo 'using Pkg; Pkg.add(name="Mads", version="1.3.10", io=devnull)' | julia
-RUN echo 'using Pkg; Pkg.add("PyCall", io=devnull)' | julia
 RUN echo 'using Pkg; Pkg.add("DataFrames", io=devnull)' | julia
 RUN echo 'using Pkg; Pkg.add("DataStructures", io=devnull)' | julia
 RUN echo 'using Pkg; Pkg.add("CSV", io=devnull)' | julia
 RUN echo 'using Pkg; Pkg.add("YAML", io=devnull)' | julia
+RUN echo 'using Pkg; Pkg.add("Fontconfig", io=devnull)' | julia
 RUN echo 'using Pkg; Pkg.add("IJulia", io=devnull)' | julia
 
 RUN echo 'using Pkg; Pkg.gc()' | julia
